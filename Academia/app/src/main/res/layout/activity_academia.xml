@@ -9,48 +9,51 @@
         android:background="#FFFFFF" >
 
         <TextView
+            android:id="@+id/txtViewTreino"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/treino"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="80dp"
             android:clickable="true"
             android:drawableTop="@drawable/treinos_main"
+            android:onClick="treinosView"
             android:text="@string/treinos"
             android:textColor="@color/laranja"
             android:textStyle="bold"
             android:fontFamily="Arial"
-            android:onClick=""/>
+            android:gravity="center" />
 
         <TextView
+            android:id="@+id/dieta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/dieta"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/treino"
+            android:layout_alignTop="@+id/txtViewTreino"
             android:layout_marginRight="50dp"
             android:clickable="true"
             android:drawableTop="@drawable/dietas_main"
+            android:onClick="dietasView"
             android:text="@string/dietas"
             android:textColor="@color/laranja"
             android:textStyle="bold"
             android:fontFamily="Arial"
-            android:onClick=""/>
+            android:gravity="center" />
 
         <TextView
+            android:id="@+id/atividade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/atividade"
-            android:layout_alignLeft="@id/treino"
+            android:layout_alignLeft="@+id/txtViewTreino"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="120dp"
+            android:layout_marginBottom="50dp"
             android:clickable="true"
             android:drawableTop="@drawable/atividade_main"
             android:text="@string/atividades"
             android:textColor="@color/laranja"
             android:textStyle="bold"
             android:fontFamily="Arial"
-            android:onClick=""/>
+            android:onClick="atividadesView"
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/grafico"
@@ -60,10 +63,11 @@
             android:layout_alignRight="@id/dieta"
             android:clickable="true"
             android:drawableTop="@drawable/grafico_main"
-            android:onClick=""
+            android:onClick="graficosView"
             android:text="@string/graficos"
             android:textColor="@color/laranja"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center" />
 
     </RelativeLayout>
 </LinearLayout>

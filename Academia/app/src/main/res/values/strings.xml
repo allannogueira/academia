@@ -4,9 +4,22 @@
     <string name="app_name">Workout</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="treinos">Treinos</string>
+    <string name="treinos">   Treinos</string>
     <string name="dietas">Dietas</string>
     <string name="atividades">Atividades</string>
     <string name="graficos">Gráficos</string>
+    <string name="title_activity_treinos">Treinos</string>
+    <string name="title_activity_dietas_view">DietasView</string>
+    <string name="title_activity_atividades_view">AtividadesView</string>
+    <string name="title_activity_graficos_view">GraficosView</string>
+    <string name="title_activity_detalhe_treino">DetalheTreino</string>
+    <string name="title_activity_treino_menu">Treino_menu</string>
+
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 </resources>

@@ -1,10 +1,12 @@
-package unip.com.br.academia;
+package unip.com.br.View;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class Academia extends ActionBarActivity {
@@ -38,5 +40,28 @@ public class Academia extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void treinosView(View view){
+        Intent intent = new Intent(this, Treinos.class);
+        startActivity(intent);
+
+    }
+
+    public void dietasView(View view){
+        Intent intent = new Intent(this, DietasView.class);
+        startActivity(intent);
+
+    }
+
+    public void atividadesView(View view){
+        Intent intent = new Intent(this, AtividadesView.class);
+        startActivity(intent);
+
+    }
+
+    public void graficosView(View view){
+        Intent intent = new Intent(this, GraficosView.class);
+        startActivity(intent);
+
     }
 }
