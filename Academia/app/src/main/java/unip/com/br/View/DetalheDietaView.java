@@ -43,7 +43,7 @@ public class DetalheDietaView extends ActionBarActivity {
         }
 
 
-        lista = (ListView)findViewById(R.id.listViewDetalheTreino);
+        lista = (ListView)findViewById(R.id.listViewDetalheDieta);
 
         recuperaDados();
 
@@ -58,10 +58,10 @@ public class DetalheDietaView extends ActionBarActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(),DetalheTreino.class);
+                Intent intent = new Intent(view.getContext(),DescricaoDieta.class);
                 Bundle param = new Bundle();
 
-                param.putString("campoSelecionado",String.valueOf(lista.getItemAtPosition(position)));
+                param.putString("dietaSelecionado",String.valueOf(lista.getItemAtPosition(position)));
 
                 intent.putExtras(param);
 

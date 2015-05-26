@@ -44,6 +44,10 @@
             android:name=".DetalheDietaView"
             android:label="@string/title_activity_dietas_view" >
         </activity>
+        <activity
+            android:name=".DescricaoDieta"
+            android:label="@string/title_activity_descricao_dieta" >
+        </activity>
     </application>
 
 </manifest>
