@@ -52,7 +52,7 @@
             android:textColor="@color/laranja"
             android:textStyle="bold"
             android:fontFamily="Arial"
-            android:onClick="atividadesView"
+            android:onClick="mapa"
             android:gravity="center" />
 
         <TextView

@@ -64,4 +64,10 @@ public class Academia extends ActionBarActivity {
         startActivity(intent);
 
     }
+
+    public void mapa(View view){
+        Intent intent = new Intent(this, GPSActivity.class);
+        startActivity(intent);
+
+    }
 }
