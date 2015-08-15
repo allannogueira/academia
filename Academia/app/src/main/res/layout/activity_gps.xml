@@ -8,10 +8,76 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/llContainerGps"
+        android:id="@+id/llContainerCronometro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+
+        <Chronometer
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format="Total (%s)"
+            android:text="Cronometro"
+            android:id="@+id/chronometer"
+            android:textSize="28sp"/>
+
+        <LinearLayout
+            android:id="@+id/llContainerInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtInfoKm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:format="(%s)Km"/>
+
+            <TextView
+                android:id="@+id/txtInfoKal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:format="(%s)kal"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llContainerGps"
+        android:layout_width="match_parent"
+        android:layout_height="400sp"
+        android:orientation="vertical">
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llContainerBtns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnIniciar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciar"/>
+
+        <Button
+            android:id="@+id/btnPausar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pausar"/>
+
+        <Button
+            android:id="@+id/btnParar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parar"/>
+
     </LinearLayout>
 
 </LinearLayout>
