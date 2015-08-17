@@ -1,4 +1,4 @@
-package unip.com.br.Model;
+package service.unip.com.br.Model;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

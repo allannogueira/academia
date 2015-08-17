@@ -1,9 +1,8 @@
-package unip.com.br.View;
+package unip.com.br.activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.location.GpsStatus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -11,16 +10,11 @@ import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -37,8 +31,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import unip.com.br.View.R;
-
 public class GPSActivity extends FragmentActivity implements LocationListener {
 
     private SupportMapFragment mapFrag;
@@ -48,7 +40,6 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
     private Chronometer cronometro;
     private Button btnInciar;
     private Button btnPausar;
-    private Button btnParar;
     private boolean isClickPause;
     private long tempoQuandoParado;
     private List<LatLng> listaLatLng;
@@ -57,6 +48,8 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
     private TextView txtInfoKal;
     double distancia;
     public static double vlrCalorias = 0.0175;
+    private boolean isClickIniciar;
+    private DecimalFormat df = new DecimalFormat("#.#");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +59,6 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
         cronometro = (Chronometer) findViewById(R.id.chronometer);
         btnInciar = (Button) findViewById(R.id.btnIniciar);
         btnPausar = (Button) findViewById(R.id.btnPausar);
-        btnParar = (Button) findViewById(R.id.btnParar);
         txtInfoKm = (TextView) findViewById(R.id.txtInfoKm);
         txtInfoKal = (TextView) findViewById(R.id.txtInfoKal);
 
@@ -121,6 +113,7 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
 
             @Override
             public void onClick(View v) {
+                isClickIniciar = true;
                 if(isClickPause){
                     cronometro.setBase(SystemClock.elapsedRealtime() + tempoQuandoParado);
                     cronometro.start();
@@ -139,22 +132,12 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
 
             @Override
             public void onClick(View v) {
+                isClickIniciar = false;
                 if(!isClickPause){
                     tempoQuandoParado = cronometro.getBase() - SystemClock.elapsedRealtime();
                 }
                 cronometro.stop();
                 isClickPause = true;
-            }
-        });
-
-        btnParar.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-
-                cronometro.stop();
-                cronometro.setText("Total (00:00)");
-                tempoQuandoParado = 0;
             }
         });
     }
@@ -196,12 +179,18 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
             configLocation(new LatLng(location.getLatitude(), location.getLongitude()));
         }
 
-        LatLng logLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+        if(isClickIniciar) {
+            LatLng logLatLng = new LatLng(location.getLatitude(), location.getLongitude());
 
-        listaLatLng.add(logLatLng);
-        drawRoute();
-        getDistance();
-        getCalorias();
+            listaLatLng.add(logLatLng);
+            drawRoute();
+            getDistance();
+            getCalorias();
+        }
+        else{
+            txtInfoKm.setText(df.format(distancia) + "Km");
+            txtInfoKal.setText(calculaCalorias(getVelocidadeMedia(distancia,  cronometro.getBase()), 120, vlrCalorias) + "Kal");
+        }
     }
 
     @Override

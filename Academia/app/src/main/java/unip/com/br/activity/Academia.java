@@ -1,4 +1,4 @@
-package unip.com.br.View;
+package unip.com.br.activity;
 
 import android.app.ActionBar;
 import android.content.Intent;

@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="unip.com.br.View.Mapa"
+    tools:context="unip.com.br.activity.Mapa"
     android:orientation="vertical">
 
     <LinearLayout
@@ -26,32 +26,46 @@
             android:id="@+id/llContainerInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/txtInfoKm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20sp"
-                android:format="(%s)Km"/>
+                android:format="(%s)Km"
+                android:gravity="center"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"/>
 
             <TextView
                 android:id="@+id/txtInfoKal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20sp"
-                android:format="(%s)kal"/>
+                android:format="(%s)kal"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llContainerGps"
+        android:id="@+id/llGPS"
         android:layout_width="match_parent"
-        android:layout_height="400sp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llContainerGps"
+            android:layout_width="match_parent"
+            android:layout_height="400sp"
+            android:orientation="vertical">
+        </LinearLayout>
+
+     </LinearLayout>
 
 
     <LinearLayout
@@ -64,19 +78,30 @@
             android:id="@+id/btnIniciar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Iniciar"/>
+            android:layout_alignLeft="@+id/linearLayout1"
+            android:layout_below="@+id/linearLayout1"
+            android:background="@drawable/shapebutton"
+            android:layout_marginTop="30dp"
+            android:text="Iniciar "
+            android:drawableRight="@drawable/ic_action_play"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/btnPausar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pausar"/>
-
-        <Button
-            android:id="@+id/btnParar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Parar"/>
+            android:layout_alignLeft="@+id/linearLayout1"
+            android:layout_below="@+id/linearLayout1"
+            android:background="@drawable/shapebutton"
+            android:layout_marginTop="30dp"
+            android:text="Pausar "
+            android:textColor="#FFFFFF"
+            android:drawableRight="@drawable/ic_action_pause"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

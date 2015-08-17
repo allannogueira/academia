@@ -1,4 +1,4 @@
-package unip.com.br.View;
+package unip.com.br.activity;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

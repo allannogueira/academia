@@ -1,4 +1,4 @@
-package unip.com.br.View;
+package unip.com.br.activity;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import unip.com.br.View.R;
 
 public class DescricaoDieta extends ActionBarActivity {
 

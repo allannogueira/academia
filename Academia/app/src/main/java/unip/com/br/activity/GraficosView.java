@@ -1,8 +1,6 @@
-package unip.com.br.View;
+package unip.com.br.activity;
 
 import android.app.ListActivity;
-import android.drm.DrmStore;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,8 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import unip.com.br.View.R;
 
 public class GraficosView extends ListActivity implements AdapterView.OnItemClickListener {
 
