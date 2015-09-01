@@ -27,8 +27,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class GPSActivity extends FragmentActivity implements LocationListener {
@@ -42,14 +46,15 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
     private Button btnPausar;
     private boolean isClickPause;
     private long tempoQuandoParado;
-    private List<LatLng> listaLatLng;
+    private HashSet<LatLng> listaLatLng;
     private Polyline polyline;
     private TextView txtInfoKm;
     private TextView txtInfoKal;
-    double distancia;
-    public static double vlrCalorias = 0.0175;
+    private BigDecimal distancia = new BigDecimal(0).setScale(2, RoundingMode.HALF_EVEN);;
+    public static BigDecimal vlrCalorias =new BigDecimal(0.0175);
     private boolean isClickIniciar;
-    private DecimalFormat df = new DecimalFormat("#.#");
+    private BigDecimal calorias = new BigDecimal(0).setScale(2, RoundingMode.HALF_EVEN);;
+    private BigDecimal ultimaCaloria = new BigDecimal(0).setScale(2, RoundingMode.HALF_EVEN);;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +80,10 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
     @Override
     public void onResume() {
         super.onResume();
+        txtInfoKm.setText(distancia.toString() + " Km");
+        txtInfoKal.setText("0.00 Kal");
 
-        listaLatLng = new ArrayList<>();
+        listaLatLng = new HashSet();;
 
         allowNetWork = true;
 
@@ -105,7 +112,6 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
             startActivity(it);
         }
         else {
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
         }
 
@@ -113,6 +119,9 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
 
             @Override
             public void onClick(View v) {
+                distancia = new BigDecimal(0).setScale(2, RoundingMode.HALF_EVEN);
+                calorias = new BigDecimal(0).setScale(2, RoundingMode.HALF_EVEN);
+                ultimaCaloria = new BigDecimal(0).setScale(2, RoundingMode.HALF_EVEN);
                 isClickIniciar = true;
                 if(isClickPause){
                     cronometro.setBase(SystemClock.elapsedRealtime() + tempoQuandoParado);
@@ -188,8 +197,10 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
             getCalorias();
         }
         else{
-            txtInfoKm.setText(df.format(distancia) + "Km");
-            txtInfoKal.setText(calculaCalorias(getVelocidadeMedia(distancia,  cronometro.getBase()), 120, vlrCalorias) + "Kal");
+            txtInfoKm.setText(distancia.toString() + "Km");
+            BigDecimal tempo = new BigDecimal(cronometro.getBase()).setScale(2,BigDecimal.ROUND_HALF_EVEN);
+            BigDecimal peso = new BigDecimal(120);
+            txtInfoKal.setText(calculaCalorias(getVelocidadeMedia(distancia, tempo ), peso, vlrCalorias) + "Kal");
         }
     }
 
@@ -246,31 +257,41 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
             polyline = map.addPolyline(po);
         }
         else{
-            polyline.setPoints(listaLatLng);
+            List<LatLng> lista = new ArrayList<>();
+            lista.addAll(listaLatLng);
+            polyline.setPoints(lista);
         }
     }
 
     public void getDistance(){
-        DecimalFormat df = new DecimalFormat("#.#");
-        distancia = 0;
+        distancia = new BigDecimal(0).setScale(BigDecimal.ROUND_HALF_EVEN);
+        List<LatLng> lista = new ArrayList<>();
+        lista.addAll(listaLatLng);
 
-        for(int i  = 0, tam = listaLatLng.size(); i<tam; i++){
+        for(int i  = 0, tam = lista.size(); i<tam; i++){
             if(i < tam - 1){
-                distancia += distance(listaLatLng.get(i), listaLatLng.get(i+1));
+                distancia.add(distance(lista.get(i), lista.get(i+1)));
             }
         }
 
-        txtInfoKm.setText(df.format(distancia) + "Km");
+        txtInfoKm.setText(distancia + "Km");
     }
 
     public void getCalorias(){
 
-        txtInfoKal.setText(calculaCalorias(getVelocidadeMedia(distancia,  cronometro.getBase()), 120, vlrCalorias) + "Kal");
+        BigDecimal tempo = new BigDecimal(cronometro.getBase()).setScale(2,BigDecimal.ROUND_HALF_EVEN);
+        BigDecimal peso = new BigDecimal(120);
+        calorias = calculaCalorias(getVelocidadeMedia(distancia,  tempo), peso, vlrCalorias);
+
+        if(calorias.compareTo(ultimaCaloria) == 0) {
+            ultimaCaloria = calorias;
+            txtInfoKal.setText(ultimaCaloria.toString()+"Kal");
+        }
 
 
     }
 
-    public static double distance(LatLng StartP, LatLng EndP) {
+    public static BigDecimal distance(LatLng StartP, LatLng EndP) {
         double lat1 = StartP.latitude;
         double lat2 = EndP.latitude;
         double lon1 = StartP.longitude;
@@ -281,17 +302,17 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
                 Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
                         Math.sin(dLon/2) * Math.sin(dLon/2);
         double c = 2 * Math.asin(Math.sqrt(a));
-        return 6366000 * c/1000;
+        return new BigDecimal(6366000 * c/1000).setScale(2,BigDecimal.ROUND_HALF_EVEN);
     }
 
-    public String calculaCalorias(double velocidade, double peso, double vlrCalorias){
-        double calorias = velocidade * peso * vlrCalorias;
+    public BigDecimal calculaCalorias(BigDecimal velocidade, BigDecimal peso, BigDecimal vlrCalorias){
+        BigDecimal calorias = velocidade.multiply(peso).multiply(vlrCalorias);
 
-        return String.valueOf(calorias);
+        return calorias.setScale(2,BigDecimal.ROUND_HALF_EVEN);
     }
 
-    public double getVelocidadeMedia(double distancia, double tempo){
+    public BigDecimal getVelocidadeMedia(BigDecimal distancia, BigDecimal tempo){
 
-        return (distancia / tempo);
+        return (distancia.divide(tempo).setScale(2,BigDecimal.ROUND_HALF_EVEN));
     }
 }

@@ -44,10 +44,10 @@ public class DietasView extends ActionBarActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(), DetalheDietaView.class);
+                Intent intent = new Intent(view.getContext(),DescricaoDieta.class);
                 Bundle param = new Bundle();
 
-                param.putString("dietaSelecionado", String.valueOf(lista.getItemAtPosition(position)));
+                param.putString("dietaSelecionado",String.valueOf(lista.getItemAtPosition(position)));
 
                 intent.putExtras(param);
 
