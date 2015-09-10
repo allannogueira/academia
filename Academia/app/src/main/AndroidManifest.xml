@@ -20,7 +20,7 @@
         android:logo="@drawable/logo"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="unip.com.br.activity.Academia"
+            android:name=".AcademiaActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,31 +29,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="unip.com.br.activity.Treinos"
+            android:name=".TreinosActivity"
             android:label="@string/title_activity_treinos" >
         </activity>
         <activity
-            android:name="unip.com.br.activity.DietasView"
+            android:name=".DietasActivity"
             android:label="@string/title_activity_dietas_view" >
         </activity>
         <activity
-            android:name="unip.com.br.activity.AtividadesView"
+            android:name=".AtividadesActivity"
             android:label="@string/title_activity_atividades_view" >
         </activity>
         <activity
-            android:name="unip.com.br.activity.GraficosView"
+            android:name=".GraficosActivity"
             android:label="@string/title_activity_graficos_view" >
         </activity>
         <activity
-            android:name="unip.com.br.activity.DetalheTreino"
+            android:name=".DetalheTreinoActivity"
             android:label="@string/title_activity_treinos" >
         </activity>
         <activity
-            android:name="unip.com.br.activity.DetalheDietaView"
+            android:name=".DetalheDietaActivity"
             android:label="@string/title_activity_dietas_view" >
         </activity>
         <activity
-            android:name="unip.com.br.activity.DescricaoDieta"
+            android:name=".DescricaoDietaActivity"
             android:label="@string/title_activity_descricao_dieta" >
         </activity>
 
@@ -65,12 +65,20 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="unip.com.br.activity.Mapa"
+            android:name=".MapaActivity"
             android:label="@string/title_activity_mapa" >
         </activity>
         <activity
-            android:name="unip.com.br.activity.GPSActivity"
+            android:name=".GPSActivity"
             android:label="@string/title_activity_gps" >
+        </activity>
+        <activity
+            android:name=".MedidasActivity"
+            android:label="@string/title_activity_medidas" >
+        </activity>
+        <activity
+            android:name=".WebServiceActivity"
+            android:label="@string/title_activity_web_service" >
         </activity>
     </application>
 

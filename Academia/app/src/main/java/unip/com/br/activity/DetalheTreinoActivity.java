@@ -1,12 +1,9 @@
 package unip.com.br.activity;
 
-
 import android.app.ActionBar;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -17,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DetalheDietaView extends ActionBarActivity {
+public class DetalheTreinoActivity extends ActionBarActivity {
 
     List<Map<String, String>> dados = new ArrayList<>();
     List<String> exercicio = new ArrayList<>();
@@ -29,7 +26,7 @@ public class DetalheDietaView extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalhe_dieta);
+        setContentView(R.layout.activity_detalhe_treino);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.actionbar);
 
@@ -38,11 +35,11 @@ public class DetalheDietaView extends ActionBarActivity {
 
         if(param!=null)
         {
-            parametro =param.getString("dietaSelecionado");
+            parametro =param.getString("campoSelecionado");
         }
 
 
-        lista = (ListView)findViewById(R.id.listViewDetalheDieta);
+        lista = (ListView)findViewById(R.id.listViewDetalheTreino);
 
         recuperaDados();
 
@@ -57,40 +54,19 @@ public class DetalheDietaView extends ActionBarActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(),DescricaoDieta.class);
+                Intent intent = new Intent(view.getContext(),DetalheTreinoActivity.class);
                 Bundle param = new Bundle();
 
-                param.putString("dietaSelecionado",String.valueOf(lista.getItemAtPosition(position)));
+                param.putString("campoSelecionado",String.valueOf(lista.getItemAtPosition(position)));
 
                 intent.putExtras(param);
 
                 startActivity(intent);
             }
         });
+
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_detalhe_dieta_view, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     public void recuperaDados(){
 
@@ -98,7 +74,38 @@ public class DetalheDietaView extends ActionBarActivity {
         serie = new ArrayList<>();
         peso = new ArrayList<>();
 
+        if(parametro.substring(parametro.length() - 2, parametro.length() - 1).equals("A")){
+            exercicio.add("Supino Reto");
+            exercicio.add("Supino Inclinado");
+            exercicio.add("Supino Declinado");
+            exercicio.add("Pack Deck");
 
+            serie.add("Série: 3x15 ");
+            serie.add("Série: 3x15 ");
+            serie.add("Série: 3x15 ");
+            serie.add("Série: 3x15 ");
+
+            peso.add("Peso: 30Kg");
+            peso.add("Peso: 20Kg");
+            peso.add("Peso: 25Kg");
+            peso.add("Peso: 35Kg");
+
+        }else if(parametro.substring(parametro.length() - 2, parametro.length() - 1).equals("B")){
+            exercicio.add("Remada Alta");
+            exercicio.add("Remada Unilateral");
+            exercicio.add("Puxada Pá");
+            exercicio.add("Puxada Frente");
+
+            serie.add("Série: 3x15 ");
+            serie.add("Série: 3x15 ");
+            serie.add("Série: 3x15 ");
+            serie.add("Série: 3x15 ");
+
+            peso.add("Peso: 30Kg");
+            peso.add("Peso: 20Kg");
+            peso.add("Peso: 25Kg");
+            peso.add("Peso: 35Kg");
+        }else if(parametro.substring(parametro.length() - 2, parametro.length() - 1).equals("C")){
             exercicio.add("Leg Press 45º");
             exercicio.add("Extensora");
             exercicio.add("Flexora");
@@ -119,6 +126,9 @@ public class DetalheDietaView extends ActionBarActivity {
             peso.add("Peso: 35Kg");
             peso.add("Peso: 5Kg");
             peso.add("Peso: 5Kg");
+        }
+
+
 
         for(int index =0; index<exercicio.size(); index++) {
             Map<String, String> linha = new HashMap<>();

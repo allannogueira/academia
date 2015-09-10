@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DescricaoDieta extends ActionBarActivity {
+public class DescricaoDietaActivity extends ActionBarActivity {
 
     List<Map<String, String>> dadosDesjejum = new ArrayList<>();
     List<Map<String, String>> dadosAlmoco = new ArrayList<>();

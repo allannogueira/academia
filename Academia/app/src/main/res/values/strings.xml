@@ -22,5 +22,8 @@
     <string name="google_maps_key">AIzaSyCvQeSwUItGY3zVtwi_iV1Odamhx9zfQmU</string>
     <string name="title_activity_mapa">Mapa</string>
     <string name="title_activity_gps">GPSActivity</string>
+    <string name="title_activity_medidas">MedidasActivity</string>
+    <string name="action_medidas">Medidas</string>
+    <string name="title_activity_web_service">WebServiceActivity</string>
 
 </resources>

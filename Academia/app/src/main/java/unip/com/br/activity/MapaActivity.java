@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Mapa extends FragmentActivity {
+public class MapaActivity extends FragmentActivity {
 
     private SupportMapFragment mapFrag;
     private GoogleMap map;
@@ -188,11 +188,11 @@ public class Mapa extends FragmentActivity {
             }
         }
 
-        Toast.makeText(Mapa.this, "Distancia: "+distancia+"Mt", Toast.LENGTH_LONG).show();
+        Toast.makeText(MapaActivity.this, "Distancia: "+distancia+"Mt", Toast.LENGTH_LONG).show();
     }
 
     public void getLocation(View view){
-        Geocoder gc = new Geocoder(Mapa.this);
+        Geocoder gc = new Geocoder(MapaActivity.this);
 
         List<Address> addressList = new ArrayList<Address>();
         try {
@@ -204,7 +204,7 @@ public class Mapa extends FragmentActivity {
             address += "Estado: "+addressList.get(0).getAdminArea() + "\n";
             address += "Cidade: "+addressList.get(0).getCountryName() + "\n";
 
-            Toast.makeText(Mapa.this, "Local: "+address, Toast.LENGTH_LONG).show();
+            Toast.makeText(MapaActivity.this, "Local: "+address, Toast.LENGTH_LONG).show();
         } catch (IOException e) {
             e.printStackTrace();
         }

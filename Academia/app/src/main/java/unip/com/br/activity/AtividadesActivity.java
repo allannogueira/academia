@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AtividadesView extends ActionBarActivity {
+public class AtividadesActivity extends ActionBarActivity {
 
 
     List<Map<String, String>> dados = new ArrayList<>();

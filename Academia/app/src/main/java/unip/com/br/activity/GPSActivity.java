@@ -1,5 +1,6 @@
 package unip.com.br.activity;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,6 +12,7 @@ import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
@@ -35,7 +37,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class GPSActivity extends FragmentActivity implements LocationListener {
+public class GPSActivity extends ActionBarActivity implements LocationListener {
 
     private SupportMapFragment mapFrag;
     private GoogleMap map;
@@ -60,6 +62,8 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gps);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar);
 
         cronometro = (Chronometer) findViewById(R.id.chronometer);
         btnInciar = (Button) findViewById(R.id.btnIniciar);

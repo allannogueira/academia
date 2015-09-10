@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/button_material_light">
+
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView android:text="Altura (Cm)" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView" />
+
+
+        <TextView android:text="Peso (Kg)" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" />
+
+
+        <TextView android:text="Bícpes (cm)" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3" />
+
+        <TextView android:text="Trícpes (cm)" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4" />
+
+        <TextView android:text="Peitoral Maior (cm)" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5" />
+
+        <TextView android:text="Peitoral Menor (cm)" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6" />
+
+        <TextView android:text="Coxas (cm)" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7" />
+
+        <TextView android:text="Panturilhas (cm)" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView8" />
+
+        <TextView android:text="Quadril (cm)" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9" />
+        </ScrollView>
+
+</LinearLayout>

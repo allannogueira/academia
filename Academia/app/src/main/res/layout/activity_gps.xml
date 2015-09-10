@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="unip.com.br.activity.Mapa"
+    tools:context="unip.com.br.activity.MapaActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -17,7 +17,7 @@
         <Chronometer
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:format="Total (%s)"
+            android:format="%s H"
             android:text="Cronometro"
             android:id="@+id/chronometer"
             android:textSize="28sp"/>
@@ -82,7 +82,6 @@
             android:layout_below="@+id/linearLayout1"
             android:background="@drawable/shapebutton"
             android:layout_marginTop="30dp"
-            android:text="Iniciar "
             android:drawableRight="@drawable/ic_action_play"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="21dp"
@@ -97,7 +96,6 @@
             android:layout_below="@+id/linearLayout1"
             android:background="@drawable/shapebutton"
             android:layout_marginTop="30dp"
-            android:text="Pausar "
             android:textColor="#FFFFFF"
             android:drawableRight="@drawable/ic_action_pause"
             android:layout_marginLeft="10dp"

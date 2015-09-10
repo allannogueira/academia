@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DietasView extends ActionBarActivity {
+public class DietasActivity extends ActionBarActivity {
 
     List<Map<String, String>> dados = new ArrayList<>();
     List<String> titulo = new ArrayList<>();
@@ -44,7 +44,7 @@ public class DietasView extends ActionBarActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(),DescricaoDieta.class);
+                Intent intent = new Intent(view.getContext(),DescricaoDietaActivity.class);
                 Bundle param = new Bundle();
 
                 param.putString("dietaSelecionado",String.valueOf(lista.getItemAtPosition(position)));

@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
-public class Academia extends ActionBarActivity {
+public class AcademiaActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,28 +40,33 @@ public class Academia extends ActionBarActivity {
             return true;
         }
 
+        if (id == R.id.action_medidas) {
+            Intent secondActivity = new Intent(this, WebServiceActivity.class);
+            startActivity(secondActivity);
+        }
+
         return super.onOptionsItemSelected(item);
     }
     public void treinosView(View view){
-        Intent intent = new Intent(this, Treinos.class);
+        Intent intent = new Intent(this, TreinosActivity.class);
         startActivity(intent);
 
     }
 
     public void dietasView(View view){
-        Intent intent = new Intent(this, DietasView.class);
+        Intent intent = new Intent(this, DietasActivity.class);
         startActivity(intent);
 
     }
 
     public void atividadesView(View view){
-        Intent intent = new Intent(this, AtividadesView.class);
+        Intent intent = new Intent(this, AtividadesActivity.class);
         startActivity(intent);
 
     }
 
     public void graficosView(View view){
-        Intent intent = new Intent(this, GraficosView.class);
+        Intent intent = new Intent(this, GraficosActivity.class);
         startActivity(intent);
 
     }

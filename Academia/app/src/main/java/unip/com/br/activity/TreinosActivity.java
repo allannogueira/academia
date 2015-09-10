@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class Treinos extends ActionBarActivity{
+public class TreinosActivity extends ActionBarActivity{
 
     List<Map<String, String>> dados = new ArrayList<>();
     List<String> titulo = new ArrayList<>();
@@ -44,7 +44,7 @@ public class Treinos extends ActionBarActivity{
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(),DetalheTreino.class);
+                Intent intent = new Intent(view.getContext(),DetalheTreinoActivity.class);
                 Bundle param = new Bundle();
 
                 param.putString("campoSelecionado",String.valueOf(lista.getItemAtPosition(position)));

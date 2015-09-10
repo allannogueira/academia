@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GraficosView extends ListActivity implements AdapterView.OnItemClickListener {
+public class GraficosActivity extends ListActivity implements AdapterView.OnItemClickListener {
 
     private List<Map<String, Object>> listaGrafico;
 
