@@ -25,5 +25,7 @@
     <string name="title_activity_medidas">MedidasActivity</string>
     <string name="action_medidas">Medidas</string>
     <string name="title_activity_web_service">WebServiceActivity</string>
+    <string name="onlyNumber">1234567890</string>
+    <string name="title_activity_perfil">PerfilActivity</string>
 
 </resources>

@@ -27,11 +27,11 @@ import java.io.IOException;
 
 public class WebServiceActivity extends ActionBarActivity {
 
-    private static final String SOAP_ACTION = "http://201.82.228.134:2380/webservice/server.php/exemplo";
-    private static final String METHOD_NAME = "exemplo";
-    private static final String NAMESPACE = "http://201.82.228.134:2380/webservice";
+    private static final String SOAP_ACTION = "http://201.82.228.134:2380/services/Cliente/academias";
+    private static final String METHOD_NAME = "academias";
+    private static final String NAMESPACE = "http://201.82.228.134:2380/services/Cliente";
     //private static final String URL = "http://retamero.com.br/webservice/server.php?wsdl";
-    private static final String URL = "http://201.82.228.134:2380/webservice/server.php?wsdl";
+    private static final String URL = "http://201.82.228.134:2380/services/Cliente/academias?wsdl";
     private TextView tv, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16;
     private EditText etTexto;
     private String response;

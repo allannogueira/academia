@@ -3,6 +3,9 @@ package service.unip.com.br.TO;
 /**
  * Created by Cleber on 15/08/2015.
  */
+
+import android.widget.EditText;
+
 /**
  * Table(neme="medidas")
  */
@@ -10,25 +13,43 @@ public class MedidasAlunoTO {
 
     private Long codMedidasAlunoTO;
 
-    private String peso;
+    private EditText peso;
 
-    private String altura;
+    private EditText altura;
 
-    private String bicips;
+    private EditText bicipsDireito;
 
-    private String triceps;
+    private EditText bicipsEsquerdo;
 
-    private String peitoralMaior;
+    private EditText tricepsDireito;
 
-    private String peitoralMenor;
+    private EditText tricepsEsquerdo;
 
-    private String quadril;
+    private EditText peitoralMaior;
 
-    private String coxa;
+    private EditText peitoralMenor;
 
-    private String panturilha;
+    private EditText quadril;
 
-    private String flgLado;
+    private EditText coxaDireita;
+
+    private EditText coxaEsquerda;
+
+    private EditText panturilhaDireita;
+
+    private EditText panturilhaEsquerda;
+
+    private EditText flgLado;
+
+    public EditText getAbdomen() {
+        return abdomen;
+    }
+
+    public void setAbdomen(EditText abdomen) {
+        this.abdomen = abdomen;
+    }
+
+    private EditText abdomen;
 
     public Long getCodMedidasAlunoTO() {
         return codMedidasAlunoTO;
@@ -38,83 +59,115 @@ public class MedidasAlunoTO {
         this.codMedidasAlunoTO = codMedidasAlunoTO;
     }
 
-    public String getPeso() {
+    public EditText getPeso() {
         return peso;
     }
 
-    public void setPeso(String peso) {
+    public void setPeso(EditText peso) {
         this.peso = peso;
     }
 
-    public String getAltura() {
+    public EditText getAltura() {
         return altura;
     }
 
-    public void setAltura(String altura) {
+    public void setAltura(EditText altura) {
         this.altura = altura;
     }
 
-    public String getBicips() {
-        return bicips;
+    public EditText getBicipsDireito() {
+        return bicipsDireito;
     }
 
-    public void setBicips(String bicips) {
-        this.bicips = bicips;
+    public void setBicipsDireito(EditText bicipsDireito) {
+        this.bicipsDireito = bicipsDireito;
     }
 
-    public String getTriceps() {
-        return triceps;
+    public EditText getTricepsDireito() {
+        return tricepsDireito;
     }
 
-    public void setTriceps(String triceps) {
-        this.triceps = triceps;
+    public void setTricepsDireito(EditText tricepsDireito) {
+        this.tricepsDireito = tricepsDireito;
     }
 
-    public String getPeitoralMaior() {
+    public EditText getPeitoralMaior() {
         return peitoralMaior;
     }
 
-    public void setPeitoralMaior(String peitoralMaior) {
+    public void setPeitoralMaior(EditText peitoralMaior) {
         this.peitoralMaior = peitoralMaior;
     }
 
-    public String getPeitoralMenor() {
+    public EditText getPeitoralMenor() {
         return peitoralMenor;
     }
 
-    public void setPeitoralMenor(String peitoralMenor) {
+    public void setPeitoralMenor(EditText peitoralMenor) {
         this.peitoralMenor = peitoralMenor;
     }
 
-    public String getQuadril() {
+    public EditText getQuadril() {
         return quadril;
     }
 
-    public void setQuadril(String quadril) {
+    public void setQuadril(EditText quadril) {
         this.quadril = quadril;
     }
 
-    public String getCoxa() {
-        return coxa;
+    public EditText getCoxaDireita() {
+        return coxaDireita;
     }
 
-    public void setCoxa(String coxa) {
-        this.coxa = coxa;
+    public void setCoxaDireita(EditText coxaDireita) {
+        this.coxaDireita = coxaDireita;
     }
 
-    public String getPanturilha() {
-        return panturilha;
+    public EditText getPanturilhaDireita() {
+        return panturilhaDireita;
     }
 
-    public void setPanturilha(String panturilha) {
-        this.panturilha = panturilha;
+    public void setPanturilhaDireita(EditText panturilhaDireita) {
+        this.panturilhaDireita = panturilhaDireita;
     }
 
-    public String getFlgLado() {
+    public EditText getFlgLado() {
         return flgLado;
     }
 
-    public void setFlgLado(String flgLado) {
+    public void setFlgLado(EditText flgLado) {
         this.flgLado = flgLado;
+    }
+
+    public EditText getBicipsEsquerdo() {
+        return bicipsEsquerdo;
+    }
+
+    public void setBicipsEsquerdo(EditText bicipsEsquerdo) {
+        this.bicipsEsquerdo = bicipsEsquerdo;
+    }
+
+    public EditText getTricepsEsquerdo() {
+        return tricepsEsquerdo;
+    }
+
+    public void setTricepsEsquerdo(EditText tricepsEsquerdo) {
+        this.tricepsEsquerdo = tricepsEsquerdo;
+    }
+
+    public EditText getCoxaEsquerda() {
+        return coxaEsquerda;
+    }
+
+    public void setCoxaEsquerda(EditText coxaEsquerda) {
+        this.coxaEsquerda = coxaEsquerda;
+    }
+
+    public EditText getPanturilhaEsquerda() {
+        return panturilhaEsquerda;
+    }
+
+    public void setPanturilhaEsquerda(EditText panturilhaEsquerda) {
+        this.panturilhaEsquerda = panturilhaEsquerda;
     }
 }

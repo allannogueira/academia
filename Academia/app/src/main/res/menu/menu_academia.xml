@@ -4,6 +4,7 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never"
         android:actionLayout="@color/laranja"/>
+
     <item android:id="@+id/action_medidas" android:title="@string/action_medidas"
-        android:orderInCategory="100" app:showAsAction="never" />
+        android:orderInCategory="100" app:showAsAction="ifRoom"  android:icon="@drawable/medida_icone"/>
 </menu>
