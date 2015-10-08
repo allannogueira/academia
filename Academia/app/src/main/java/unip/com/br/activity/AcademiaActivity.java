@@ -51,16 +51,19 @@ public class AcademiaActivity extends FragmentActivity {
                 Intent firstActivity = new Intent(this, AcademiaActivity.class);
                 startActivity(firstActivity);
                 break;
-            case 0 : Toast.makeText(this,"teste",Toast.LENGTH_LONG).show();
-                break;
-            case 1 :
+            case 0 :
                 Intent secondActivity = new Intent(this, MedidasActivity.class);
                 startActivity(secondActivity);
+                break;
+            case 1 :
+                Intent thirdActivity = new Intent(this, PerfilActivity.class);
+                startActivity(thirdActivity);
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
     public void treinosView(View view){
         Intent intent = new Intent(this, TreinosActivity.class);
         startActivity(intent);

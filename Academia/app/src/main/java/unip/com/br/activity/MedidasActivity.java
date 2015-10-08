@@ -64,7 +64,7 @@ public class MedidasActivity extends FragmentActivity {
                 startActivity(firstActivity);
                 break;
             case 0 :
-                Intent perfilActivity = new Intent(this, MedidasActivity.class);
+                Intent perfilActivity = new Intent(this, PerfilActivity.class);
                 startActivity(perfilActivity);
                 break;
         }

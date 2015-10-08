@@ -13,6 +13,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
@@ -37,7 +39,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class GPSActivity extends ActionBarActivity implements LocationListener {
+public class GPSActivity extends FragmentActivity implements LocationListener {
 
     private SupportMapFragment mapFrag;
     private GoogleMap map;
@@ -62,8 +64,9 @@ public class GPSActivity extends ActionBarActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gps);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
+        ActionBar ab = getActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setBackgroundDrawable(getResources().getDrawable(R.color.laranja));
 
         cronometro = (Chronometer) findViewById(R.id.chronometer);
         btnInciar = (Button) findViewById(R.id.btnIniciar);
@@ -79,6 +82,44 @@ public class GPSActivity extends ActionBarActivity implements LocationListener {
 
         ft.replace(R.id.llContainerGps, mapFrag);
         ft.commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        super.onCreateOptionsMenu(menu);
+        //getMenuInflater().inflate(R.menu.menu_academia, menu);
+
+        MenuItem m1 = menu.add(0,0,0, "Medida");
+        m1.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        m1.setIcon(R.drawable.medida_icone);
+
+        MenuItem m2 = menu.add(0,1,1, "Perfil");
+        m2.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        m2.setIcon(R.drawable.perfil_icone);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case android.R.id.home:
+                Intent firstActivity = new Intent(this, AcademiaActivity.class);
+                startActivity(firstActivity);
+                break;
+            case 0 :
+                Intent secondActivity = new Intent(this, MedidasActivity.class);
+                startActivity(secondActivity);
+                break;
+            case 1 :
+                Intent thirdActivity = new Intent(this, PerfilActivity.class);
+                startActivity(thirdActivity);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -17,15 +17,15 @@
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
-    <string name="title_activity_descricao_dieta">DescricaoDieta</string>
+    <string name="title_activity_descricao_dieta">Descricao da Dieta</string>
     <string name="title_activity_map">Map</string>
     <string name="google_maps_key">AIzaSyCvQeSwUItGY3zVtwi_iV1Odamhx9zfQmU</string>
     <string name="title_activity_mapa">Mapa</string>
-    <string name="title_activity_gps">GPSActivity</string>
-    <string name="title_activity_medidas">MedidasActivity</string>
+    <string name="title_activity_gps">Atividades</string>
+    <string name="title_activity_medidas">Medidas</string>
     <string name="action_medidas">Medidas</string>
     <string name="title_activity_web_service">WebServiceActivity</string>
     <string name="onlyNumber">1234567890</string>
-    <string name="title_activity_perfil">PerfilActivity</string>
+    <string name="title_activity_perfil">Perfil</string>
 
 </resources>
