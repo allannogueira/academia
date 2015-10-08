@@ -40,6 +40,10 @@ public class AcademiaActivity extends FragmentActivity {
         m2.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         m2.setIcon(R.drawable.perfil_icone);
 
+        MenuItem m3 = menu.add(0,2,2, "Notificação");
+        m3.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        m3.setIcon(R.drawable.notificacao_icone);
+
         return true;
     }
 
@@ -58,6 +62,9 @@ public class AcademiaActivity extends FragmentActivity {
             case 1 :
                 Intent thirdActivity = new Intent(this, PerfilActivity.class);
                 startActivity(thirdActivity);
+                break;
+            case 2 :
+                Toast.makeText(this, "Teste", Toast.LENGTH_LONG).show();
                 break;
         }
 

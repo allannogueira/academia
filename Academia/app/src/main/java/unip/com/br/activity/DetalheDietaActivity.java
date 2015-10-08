@@ -4,6 +4,7 @@ package unip.com.br.activity;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DetalheDietaActivity extends ActionBarActivity {
+public class DetalheDietaActivity extends FragmentActivity {
 
     List<Map<String, String>> dados = new ArrayList<>();
     List<String> exercicio = new ArrayList<>();
@@ -30,8 +31,10 @@ public class DetalheDietaActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhe_dieta);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
+
+        ActionBar ab = getActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setBackgroundDrawable(getResources().getDrawable(R.color.laranja));
 
         Intent intent = getIntent();
         Bundle param = intent.getExtras();
@@ -72,21 +75,37 @@ public class DetalheDietaActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_detalhe_dieta_view, menu);
+
+        super.onCreateOptionsMenu(menu);
+        //getMenuInflater().inflate(R.menu.menu_academia, menu);
+
+        MenuItem m1 = menu.add(0,0,0, "Medida");
+        m1.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        m1.setIcon(R.drawable.medida_icone);
+
+        MenuItem m2 = menu.add(0,1,1, "Perfil");
+        m2.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        m2.setIcon(R.drawable.perfil_icone);
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()){
+            case android.R.id.home:
+                Intent firstActivity = new Intent(this, AcademiaActivity.class);
+                startActivity(firstActivity);
+                break;
+            case 0 :
+                Intent secondActivity = new Intent(this, MedidasActivity.class);
+                startActivity(secondActivity);
+                break;
+            case 1 :
+                Intent thirdActivity = new Intent(this, PerfilActivity.class);
+                startActivity(thirdActivity);
+                break;
         }
 
         return super.onOptionsItemSelected(item);
