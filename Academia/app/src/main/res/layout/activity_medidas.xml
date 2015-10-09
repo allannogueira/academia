@@ -8,6 +8,13 @@
         android:background="@color/branco"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/labelInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Todos os dados devem ser inserido em centímetros ou quilogramas " />
+
         //peso e altura
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -33,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Altura (Cm)" />
+                    android:text="Altura" />
 
                 <EditText
                     android:layout_width="90dp"
@@ -42,7 +49,8 @@
                     android:digits="@string/onlyNumber"
                     android:maxLength="3"
                     android:textSize="20dp"
-                    android:id="@+id/altura"/>
+                    android:id="@+id/altura"
+                    android:hint="Altura"/>
 
             </LinearLayout>
             //peso
@@ -59,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Peso (Kg)" />
+                    android:text="Peso" />
 
                 <EditText
                     android:layout_width="90dp"
@@ -67,7 +75,8 @@
                     android:digits="@string/onlyNumber"
                     android:maxLength="3"
                     android:textSize="20dp"
-                    android:id="@+id/peso"/>
+                    android:id="@+id/peso"
+                    android:hint="Peso"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -77,72 +86,12 @@
             android:background="@color/branco"
             android:orientation="horizontal">
 
-            //peitoral menor
+            // quadril
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="60dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/branco"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/labelPeitoralMenor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Peitoral Menor (cm)" />
-
-                <EditText
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:digits="@string/onlyNumber"
-                    android:maxLength="3"
-                    android:textSize="20dp"
-                    android:id="@+id/peitoralMaior"/>
-
-            </LinearLayout>
-            //peitoral maior
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/branco"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/labelPeitoralMaior"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Peitoral Maior (cm)" />
-
-                <EditText
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:digits="@string/onlyNumber"
-                    android:maxLength="3"
-                    android:textSize="20dp"
-                    android:id="@+id/peitoralMenor"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/branco"
-            android:orientation="horizontal">
-
-            //quadril
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="90dp"
                 android:layout_marginTop="10dp"
@@ -154,27 +103,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Quadril (cm)" />
+                    android:text="Quadril" />
 
                 <EditText
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="90dp"
+                    android:layout_gravity="center"
                     android:digits="@string/onlyNumber"
                     android:maxLength="3"
                     android:textSize="20dp"
-                    android:id="@+id/quadril"/>
+                    android:id="@+id/quadril"
+                    android:hint="Quadril"/>
 
             </LinearLayout>
-
-            //abdomen
+            //Abdomen
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="90dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/branco"
                 android:orientation="vertical">
@@ -184,19 +130,53 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Abdomen (cm)" />
+                    android:text="Abdomen" />
 
                 <EditText
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="90dp"
                     android:digits="@string/onlyNumber"
                     android:maxLength="3"
                     android:textSize="20dp"
-                    android:id="@+id/abdomen"/>
-
+                    android:id="@+id/abdomen"
+                    android:hint="Abdomen"/>
             </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/labelPeitoral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Peitoral" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="90dp"
+            android:background="@color/branco"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="90dp"
+                android:digits="@string/onlyNumber"
+                android:maxLength="3"
+                android:textSize="20dp"
+                android:id="@+id/peitoralMenor"
+                android:hint="Menor"/>
+
+            <EditText
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:digits="@string/onlyNumber"
+                android:maxLength="3"
+                android:textSize="20dp"
+                android:id="@+id/peitoralMaior"
+                android:hint="Maior"/>
 
         </LinearLayout>
 
@@ -206,7 +186,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Bícpes (cm)" />
+            android:text="Bícpes" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
@@ -223,7 +203,8 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/bicpesDireito"/>
+                android:id="@+id/bicpesDireito"
+                android:hint="Direito"/>
 
             <EditText
                 android:layout_width="90dp"
@@ -231,7 +212,8 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/bicpesEsquerdo"/>
+                android:id="@+id/bicpesEsquerdo"
+                android:hint="Esquerdo"/>
 
         </LinearLayout>
 
@@ -241,7 +223,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Trícpes (cm)" />
+            android:text="Trícpes" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
@@ -259,7 +241,8 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/tricipesDireito"/>
+                android:id="@+id/tricipesDireito"
+                android:hint="Direito"/>
 
             <EditText
                 android:layout_width="90dp"
@@ -267,7 +250,8 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/tricipesEsquerdo"/>
+                android:id="@+id/tricipesEsquerdo"
+                android:hint="Esquerdo"/>
 
         </LinearLayout>
 
@@ -277,7 +261,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Coxas (cm)" />
+            android:text="Coxas" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
@@ -295,7 +279,8 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/coxaDireita"/>
+                android:id="@+id/coxaDireita"
+                android:hint="Direito"/>
 
             <EditText
                 android:layout_width="90dp"
@@ -303,7 +288,8 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/coxaEsquerda"/>
+                android:id="@+id/coxaEsquerda"
+                android:hint="Esquerdo"/>
 
         </LinearLayout>
 
@@ -313,7 +299,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Panturilhas (cm)" />
+            android:text="Panturilhas" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
@@ -331,7 +317,8 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/panturilhaDireita"/>
+                android:id="@+id/panturilhaDireita"
+                android:hint="Direito"/>
 
             <EditText
                 android:layout_width="90dp"
@@ -339,8 +326,14 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/pantirilhaEsquerda"/>
+                android:id="@+id/pantirilhaEsquerda"
+                android:hint="Esquerdo"/>
 
         </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnSalvarMedida"
+            android:onClick="salvar"/>
     </LinearLayout>
 </ScrollView>
