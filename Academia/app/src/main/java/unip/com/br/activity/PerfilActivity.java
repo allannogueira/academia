@@ -6,10 +6,25 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import unip.com.br.activity.R;
+import unip.com.br.R;
 
 public class PerfilActivity extends Activity {
+
+    private EditText primeiroNome;
+    private EditText ultimoNome;
+    private EditText cidade;
+    private EditText rua;
+    private EditText bairro;
+    private EditText numero;
+    private EditText telefone;
+    private EditText celular;
+    private Button btnSalvarPerfil;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +33,16 @@ public class PerfilActivity extends Activity {
         ActionBar ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setBackgroundDrawable(getResources().getDrawable(R.color.laranja));
+
+        primeiroNome = (EditText) findViewById(R.id.primeiroNomeAluno);
+        ultimoNome  = (EditText) findViewById(R.id.ultimoNomeAluno);
+        cidade = (EditText) findViewById(R.id.nomeCidade);
+        rua   = (EditText) findViewById(R.id.nomeRua);
+        bairro  = (EditText) findViewById(R.id.nomeBairro);
+        numero = (EditText) findViewById(R.id.numeroAluno);
+        telefone= (EditText) findViewById(R.id.numTelefone);
+        celular = (EditText) findViewById(R.id.numCelular);
+        btnSalvarPerfil = (Button) findViewById(R.id.btnSalvarPerfil);
     }
 
     @Override
@@ -50,4 +75,15 @@ public class PerfilActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        btnSalvarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(null,"Teste", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 }

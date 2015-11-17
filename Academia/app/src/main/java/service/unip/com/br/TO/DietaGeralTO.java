@@ -16,7 +16,7 @@ public class DietaGeralTO {
 
     private String finalidade;
 
-    private List<DietaAlimentoTO> listaDietaAlimentoTO;
+    private List<AlimentoTO> listaAlimentoTO;
 
     public Long getCodDieta() {
         return codDieta;
@@ -42,11 +42,11 @@ public class DietaGeralTO {
         this.finalidade = finalidade;
     }
 
-    public List<DietaAlimentoTO> getDietaAlimentoTO() {
-        return listaDietaAlimentoTO;
+    public List<AlimentoTO> getListaAlimentoTO() {
+        return listaAlimentoTO;
     }
 
-    public void setDietaAlimentoTO(List<DietaAlimentoTO> listaDietaAlimentoTO) {
-        this.listaDietaAlimentoTO = listaDietaAlimentoTO;
+    public void setListaAlimentoTO(List<AlimentoTO> listaAlimentoTO) {
+        this.listaAlimentoTO = listaAlimentoTO;
     }
 }

@@ -39,6 +39,11 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import service.unip.com.br.DAO.ArLivreDAO;
+import service.unip.com.br.TO.AlunoTO;
+import service.unip.com.br.TO.ExercicioArLivreTO;
+import unip.com.br.R;
+
 public class GPSActivity extends FragmentActivity implements LocationListener {
 
     private SupportMapFragment mapFrag;
@@ -192,6 +197,10 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
                 }
                 cronometro.stop();
                 isClickPause = true;
+
+                ArLivreDAO arLivreDAO = new ArLivreDAO(GPSActivity.this);
+
+                arLivreDAO.inserir(montarExercicioArlivre());
             }
         });
     }
@@ -353,11 +362,35 @@ public class GPSActivity extends FragmentActivity implements LocationListener {
     public BigDecimal calculaCalorias(BigDecimal velocidade, BigDecimal peso, BigDecimal vlrCalorias){
         BigDecimal calorias = velocidade.multiply(peso).multiply(vlrCalorias);
 
-        return calorias.setScale(2,BigDecimal.ROUND_HALF_EVEN);
+        return calorias.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     public BigDecimal getVelocidadeMedia(BigDecimal distancia, BigDecimal tempo){
 
         return (distancia.divide(tempo).setScale(2,BigDecimal.ROUND_HALF_EVEN));
+    }
+
+    private ExercicioArLivreTO montarExercicioArlivre(){
+        BigDecimal tempo = new BigDecimal(cronometro.getBase()).setScale(2,BigDecimal.ROUND_HALF_EVEN);
+        BigDecimal peso = new BigDecimal(120);
+        DecimalFormat df = new java.text.DecimalFormat( "#,##0.00" );
+
+        List<LatLng> lista = new ArrayList<>();
+        lista.addAll(listaLatLng);
+
+        ExercicioArLivreTO exercicioArLivreTO = new ExercicioArLivreTO();
+
+        exercicioArLivreTO.setDistanciaPercorrida(df.format(distancia));
+        exercicioArLivreTO.setVlrCaloriasQueimada(df.format(calculaCalorias(getVelocidadeMedia(distancia, tempo), peso, vlrCalorias)));
+        exercicioArLivreTO.setAlunoTO(criarAluno());
+
+        return exercicioArLivreTO;
+    }
+
+    private AlunoTO criarAluno(){
+        AlunoTO aluno = new AlunoTO();
+        aluno.setCodAluno(1L);
+
+        return aluno;
     }
 }

@@ -20,7 +20,7 @@ import java.text.DecimalFormat;
 
 import service.unip.com.br.TO.MedidasAlunoTO;
 import service.unip.com.br.Utils.StringUtils;
-import unip.com.br.activity.R;
+import unip.com.br.R;
 
 public class MedidasActivity extends FragmentActivity {
 
@@ -46,10 +46,10 @@ public class MedidasActivity extends FragmentActivity {
         medida.setPeso((EditText) findViewById(R.id.peso));
         medida.setQuadril((EditText) findViewById(R.id.quadril));
         medida.setAbdomen((EditText) findViewById(R.id.abdomen));
-        medida.setBicipsDireito((EditText) findViewById(R.id.bicpesDireito));
-        medida.setBicipsEsquerdo((EditText) findViewById(R.id.bicpesEsquerdo));
-        medida.setTricepsDireito((EditText) findViewById(R.id.tricipesDireito));
-        medida.setTricepsEsquerdo((EditText) findViewById(R.id.tricipesEsquerdo));
+        medida.setBicipsDireito((EditText) findViewById(R.id.bracoDireito));
+        medida.setBicipsEsquerdo((EditText) findViewById(R.id.bracoEsquerdo));
+        medida.setTricepsDireito((EditText) findViewById(R.id.antBracoDireito));
+        medida.setTricepsEsquerdo((EditText) findViewById(R.id.antBracoEsquerdo));
         medida.setCoxaDireita((EditText) findViewById(R.id.coxaDireita));
         medida.setCoxaEsquerda((EditText) findViewById(R.id.coxaEsquerda));
         medida.setPeitoralMaior((EditText) findViewById(R.id.peitoralMaior));

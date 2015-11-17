@@ -17,12 +17,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import service.unip.com.br.DAO.AlimentosDAO;
+import service.unip.com.br.DAO.DietaGeralDAO;
+import service.unip.com.br.DAO.DietaHasAlimentoDAO;
+import service.unip.com.br.TO.AlimentoTO;
+import service.unip.com.br.TO.DietaAlimentoTO;
+import service.unip.com.br.TO.DietaGeralTO;
+import unip.com.br.R;
+
 public class DietasActivity extends FragmentActivity {
 
     List<Map<String, String>> dados = new ArrayList<>();
     List<String> titulo = new ArrayList<>();
     List<String> subtitulo = new ArrayList<>();
     private ListView lista;
+    private List<DietaGeralTO> listaDietaGeral;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +60,7 @@ public class DietasActivity extends FragmentActivity {
                 Intent intent = new Intent(view.getContext(),DescricaoDietaActivity.class);
                 Bundle param = new Bundle();
 
-                param.putString("dietaSelecionado",String.valueOf(lista.getItemAtPosition(position)));
+                param.putLong("idDieta", recuperarIdDietaSelecionada(String.valueOf(lista.getItemAtPosition(position))));
 
                 intent.putExtras(param);
 
@@ -104,7 +113,16 @@ public class DietasActivity extends FragmentActivity {
         titulo = new ArrayList<>();
         subtitulo = new ArrayList<>();
 
-        titulo.add("Aumento de Massa Muscular");
+        DietaGeralDAO dietaGeralDAO = new DietaGeralDAO(DietasActivity.this);
+
+        listaDietaGeral = dietaGeralDAO.consultarDietaGeral();
+
+        for(DietaGeralTO dietaGeralTO : listaDietaGeral){
+            titulo.add(dietaGeralTO.getNmeDieta());
+            subtitulo.add(dietaGeralTO.getFinalidade());
+        }
+
+        /*titulo.add("Aumento de Massa Muscular");
         titulo.add("Queima de Gordura");
         titulo.add("Definição Muscular");
         titulo.add("Aumento de Massa Muscular");
@@ -116,7 +134,7 @@ public class DietasActivity extends FragmentActivity {
         subtitulo.add("Arroz integral, Queijo, Frutas ...");
         subtitulo.add("Arroz integral, Peito de Frango, Proteinas ...");
         subtitulo.add("Arroz integral, Peito de Perú, Fibras ...");
-        subtitulo.add("Arroz integral, Queijo, Carboidratos ...");
+        subtitulo.add("Arroz integral, Queijo, Carboidratos ...");*/
 
         for(int index =0; index<titulo.size(); index++) {
             Map<String, String> linha = new HashMap<>();
@@ -126,5 +144,20 @@ public class DietasActivity extends FragmentActivity {
             dados.add(linha);
 
         }
+    }
+
+    public Long recuperarIdDietaSelecionada(String nmeLista){
+
+        String[] dadosLista = nmeLista.split(",");
+        String nomeDieta = dadosLista[1].substring(8, dadosLista[1].length() - 1) ;
+        String finalidade = dadosLista[0].substring(11);
+
+        for(DietaGeralTO dietaGeralTO : listaDietaGeral){
+            if(nomeDieta.equals(dietaGeralTO.getNmeDieta()) && finalidade.equals(dietaGeralTO.getFinalidade())){
+                return dietaGeralTO.getCodDieta();
+            }
+        }
+
+        return null;
     }
 }

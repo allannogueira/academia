@@ -1,6 +1,7 @@
 package unip.com.br.activity;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.os.AsyncTask;
@@ -24,21 +25,23 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 
+import unip.com.br.R;
 
-public class WebServiceActivity extends ActionBarActivity {
 
-    private static final String SOAP_ACTION = "http://201.82.228.134:2380/services/Cliente/academias";
+public class WebServiceActivity extends FragmentActivity {
+
+    private static final String SOAP_ACTION = "http://201.53.251.98:2380/services/index/academias#academias";
     private static final String METHOD_NAME = "academias";
-    private static final String NAMESPACE = "http://201.82.228.134:2380/services/Cliente";
+    private static final String NAMESPACE = "serverAcademia";
     //private static final String URL = "http://retamero.com.br/webservice/server.php?wsdl";
-    private static final String URL = "http://201.82.228.134:2380/services/Cliente/academias?wsdl";
-    private TextView tv, tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16;
+    private static final String URL = "http://201.53.251.98:2380/services/index/academias?wsdl";
+    private TextView tvtv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16;
     private EditText etTexto;
     private String response;
     private String msg;
 
     public void limparCampos(){
-        tv1.setText("");
+      /*  tv1.setText("");
         tv2.setText("");
         tv3.setText("");
         tv4.setText("");
@@ -53,7 +56,7 @@ public class WebServiceActivity extends ActionBarActivity {
         tv13.setText("");
         tv14.setText("");
         tv15.setText("");
-        tv16.setText("");
+        tv16.setText("");*/
     }
 
     public void notifica(String msg){
@@ -71,7 +74,11 @@ public class WebServiceActivity extends ActionBarActivity {
         msg ="Digite o ID do aluno.";
         notifica(msg);
         setContentView(R.layout.activity_web_service);
-        tv = (TextView) findViewById(R.id.textView36); //retorno
+
+        myAsyncTask myRequest = new myAsyncTask();
+        myRequest.execute();
+
+        /*tv = (TextView) findViewById(R.id.textView36); //retorno
         tv1 = (TextView) findViewById(R.id.textView4); //id
         tv2 = (TextView) findViewById(R.id.textView6); //peso
         tv3 = (TextView) findViewById(R.id.textView21); //altura
@@ -90,15 +97,15 @@ public class WebServiceActivity extends ActionBarActivity {
         tv16 = (TextView) findViewById(R.id.textView34); //qudi
         etTexto = (EditText) findViewById(R.id.editText2);//envia
         Button btn = (Button) findViewById(R.id.button);
-
-        btn.setOnClickListener(new View.OnClickListener() {
+*/
+        /*btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 limparCampos();
                 String texto = etTexto.getText().toString();
                 if(texto == null || texto.isEmpty()){
                     msg = "ERRO: Um número precisa ser espefícidado";
-                    tv.setText(msg);
+                    //tv.setText(msg);
                     notifica(msg);
                 }
                 else{
@@ -106,7 +113,7 @@ public class WebServiceActivity extends ActionBarActivity {
                     myRequest.execute();
                 }
             }
-        });
+        });*/
     }
 
     private class myAsyncTask extends AsyncTask<Void, Void, Void>{
@@ -118,25 +125,25 @@ public class WebServiceActivity extends ActionBarActivity {
                 JSONObject obj = new JSONObject(response);
                 if (obj.getString("id").equals("vazio")) {
                     msg = "ERR0: Este usuario não existe em nosso banco de dados.";
-                    tv.setText(msg);
+                    //tv.setText(msg);
                     notifica(msg);
                 } else if (obj.getString("id").equals("null")) {
                     msg = "ERR0: Não foi possivel estabelecer uma conexão com o servidor.";
-                    tv.setText(msg);
+                    //tv.setText(msg);
                     notifica(msg);
                 } else {
-                    tv.setText(response);
+                   // tv.setText(response);
                     msg = "Busca realizada com sucesso!";
-                    tv.setText(response);
+                  //  tv.setText(response);
                     notifica(msg);
                 }
 
                 if (response.equals("{\"id\":\"null\"}") || response.equals("{\"id\":\"vazio\"}")) {
-                    tv1.setText("");
+                    //tv1.setText("");
                 } else {
-                    tv1.setText(obj.getString("id"));
+                   // tv1.setText(obj.getString("id"));
                 }
-                tv2.setText(obj.getString("peso"));
+               /* tv2.setText(obj.getString("peso"));
                 tv3.setText(obj.getString("altura"));
                 tv4.setText(obj.getString("peitoral_maior"));
                 tv5.setText(obj.getString("peitoral_menor"));
@@ -150,7 +157,7 @@ public class WebServiceActivity extends ActionBarActivity {
                 tv13.setText(obj.getString("panturrilha_esquerda"));
                 tv14.setText(obj.getString("panturrilha_direita"));
                 tv15.setText(obj.getString("quadril_esquerdo"));
-                tv16.setText(obj.getString("quadril_direito"));
+                tv16.setText(obj.getString("quadril_direito"));*/
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -165,7 +172,7 @@ public class WebServiceActivity extends ActionBarActivity {
         @Override
         protected Void doInBackground(Void... arg0){
             SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-            request.addProperty("id", etTexto.getText().toString());
+            //request.addProperty("id", etTexto.getText().toString());
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER10);
             envelope.dotNet = true;

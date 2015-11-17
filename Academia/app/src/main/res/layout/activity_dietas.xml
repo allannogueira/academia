@@ -8,14 +8,17 @@
 
     <TextView
         android:id="@+id/textViewTituloDieta"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:text="@string/dietas"/>
+        android:text="@string/dietas"
+        android:textSize="40dp"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="20dp"/>
 
     <ListView
         android:id="@+id/listViewDietas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_marginTop="40dp"/>
 
 </RelativeLayout>

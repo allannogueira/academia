@@ -15,6 +15,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import service.unip.com.br.DAO.AlimentosDAO;
+import service.unip.com.br.TO.AlimentoTO;
+import unip.com.br.R;
+
 public class DescricaoDietaActivity extends FragmentActivity {
 
     List<Map<String, String>> dadosDesjejum = new ArrayList<>();
@@ -22,14 +26,10 @@ public class DescricaoDietaActivity extends FragmentActivity {
     List<Map<String, String>> dadosLanche = new ArrayList<>();
     List<Map<String, String>> dadosJantar = new ArrayList<>();
     List<Map<String, String>> dadosCeia = new ArrayList<>();
-    List<String> quantidade = new ArrayList<>();
+    List<String> descicao = new ArrayList<>();
     List<String> alimento = new ArrayList<>();
     private ListView listaDesjejum;
-    private ListView listaAlmoco;
-    private ListView listaLanche;
-    private ListView listaJantar;
-    private ListView listaCeia;
-    String parametro = null;
+    private Long codDieta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,29 +41,21 @@ public class DescricaoDietaActivity extends FragmentActivity {
 
         if(param!=null)
         {
-            parametro =param.getString("dietaSelecionado");
+            codDieta = param.getLong("idDieta");
         }
 
         listaDesjejum = (ListView)findViewById(R.id.listaDesjejum);
-        listaAlmoco = (ListView)findViewById(R.id.listaAlmoco);
-        listaLanche = (ListView)findViewById(R.id.listaLanche);
-        listaJantar = (ListView)findViewById(R.id.listaJantar);
-        listaCeia = (ListView)findViewById(R.id.listaCeia);
 
         recuperarDados();
 
         SimpleAdapter adapter = new SimpleAdapter(
                 this,
-                dadosCeia,
+                dadosDesjejum,
                 android.R.layout.simple_list_item_2,
                 new String[] {"Titulo", "Subtitulo"},
                 new int[] {android.R.id.text1, android.R.id.text2});
 
         listaDesjejum.setAdapter(adapter);
-        listaAlmoco.setAdapter(adapter);
-        listaLanche.setAdapter(adapter);
-        listaJantar.setAdapter(adapter);
-        listaCeia.setAdapter(adapter);
 
         ActionBar ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
@@ -111,11 +103,19 @@ public class DescricaoDietaActivity extends FragmentActivity {
 
     public void recuperarDados(){
 
-        quantidade = new ArrayList<>();
+        descicao = new ArrayList<>();
         alimento = new ArrayList<>();
 
+        AlimentosDAO alimentosDAO = new AlimentosDAO(this);
 
-        quantidade.add("1 un");
+        List<AlimentoTO> listaAlimento = alimentosDAO.consultarAlimentoDieta(codDieta);
+
+        for (AlimentoTO alimentoTO : listaAlimento) {
+            alimento.add(alimentoTO.getNmeAlimento());
+            descicao.add(alimentoTO.getDscCaracteriscia());
+        }
+
+        /*quantidade.add("1 un");
         quantidade.add("100 g");
         quantidade.add("1 fatia");
         quantidade.add("1 copo");
@@ -124,17 +124,14 @@ public class DescricaoDietaActivity extends FragmentActivity {
         alimento.add("Maça");
         alimento.add("Aveia");
         alimento.add("Pão integral com Requeijão");
-        alimento.add("Leite desnatado");
+        alimento.add("Leite desnatado");*/
 
         for(int index =0; index<alimento.size(); index++) {
             Map<String, String> linha = new HashMap<>();
 
-            linha.put("Titulo", quantidade.get(index) + " " + alimento.get(index));
+            linha.put("Titulo", alimento.get(index));
+            linha.put("Subtitulo", descicao.get(index));
             dadosDesjejum.add(linha);
-            dadosAlmoco.add(linha);
-            dadosLanche.add(linha);
-            dadosJantar.add(linha);
-            dadosCeia.add(linha);
         }
     }
 }

@@ -17,6 +17,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import service.unip.com.br.DAO.TreinoDAO;
+import service.unip.com.br.TO.ExercicioTO;
+import service.unip.com.br.TO.TreinoAlunoTO;
+import unip.com.br.R;
+
 public class DetalheTreinoActivity extends FragmentActivity {
 
     List<Map<String, String>> dados = new ArrayList<>();
@@ -25,6 +30,7 @@ public class DetalheTreinoActivity extends FragmentActivity {
     List<String> peso = new ArrayList<>();
     private ListView lista;
     String parametro = null;
+    TreinoAlunoTO treino = new TreinoAlunoTO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +65,16 @@ public class DetalheTreinoActivity extends FragmentActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(),DetalheTreinoActivity.class);
+                Intent intent = new Intent(view.getContext(),AtualizarTreinoActivity.class);
                 Bundle param = new Bundle();
 
-                param.putString("campoSelecionado",String.valueOf(lista.getItemAtPosition(position)));
+
+                String[] itemLista = lista.getItemAtPosition(position).toString().split(",");
+                String nomeExercicio = itemLista[1].substring(8, itemLista[1].length() - 1);
+                param.putString("nomeExercicio",String.valueOf(lista.getItemAtPosition(position)));
+                param.putLong("codExercicio", procurarIdExercicio(nomeExercicio));
+                param.putLong("codTreino", treino.getCodTreinoAluno());
+                param.putString("campoSelecionado", parametro);
 
                 intent.putExtras(param);
 
@@ -78,7 +90,7 @@ public class DetalheTreinoActivity extends FragmentActivity {
         super.onCreateOptionsMenu(menu);
         //getMenuInflater().inflate(R.menu.menu_academia, menu);
 
-        MenuItem m1 = menu.add(0,0,0, "Medida");
+        MenuItem m1 = menu.add(0, 0, 0, "Medida");
         m1.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         m1.setIcon(R.drawable.medida_icone);
 
@@ -116,7 +128,17 @@ public class DetalheTreinoActivity extends FragmentActivity {
         serie = new ArrayList<>();
         peso = new ArrayList<>();
 
-        if(parametro.substring(parametro.length() - 2, parametro.length() - 1).equals("A")){
+
+        TreinoDAO treinoDAO = new TreinoDAO(DetalheTreinoActivity.this);
+        treino = treinoDAO.consultarTreino(parametro);
+
+        for(ExercicioTO exercicioTreino : treino.getListaExercicioTO()){
+            exercicio.add(exercicioTreino.getNmeExercicio());
+            serie.add("Série: "+treino.getSerie());
+            peso.add("Peso: "+exercicioTreino.getPeso());
+        }
+
+        /*if(parametro.substring(parametro.length() - 2, parametro.length() - 1).equals("A")){
             exercicio.add("Supino Reto");
             exercicio.add("Supino Inclinado");
             exercicio.add("Supino Declinado");
@@ -168,17 +190,27 @@ public class DetalheTreinoActivity extends FragmentActivity {
             peso.add("Peso: 35Kg");
             peso.add("Peso: 5Kg");
             peso.add("Peso: 5Kg");
-        }
+        }*/
 
 
 
         for(int index =0; index<exercicio.size(); index++) {
             Map<String, String> linha = new HashMap<>();
 
+
             linha.put("Titulo", exercicio.get(index));
             linha.put("Subtitulo", serie.get(index) + "\n" + peso.get(index));
             dados.add(linha);
 
         }
+    }
+
+    private Long procurarIdExercicio(String nomeExercicio){
+        for(ExercicioTO exercicioTreino : treino.getListaExercicioTO()){
+            if(exercicioTreino.getNmeExercicio().equals(nomeExercicio)){
+                return exercicioTreino.getCodExercicio();
+            }
+        }
+        return null;
     }
 }

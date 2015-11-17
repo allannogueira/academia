@@ -28,6 +28,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import unip.com.br.R;
+
 
 public class MapaActivity extends FragmentActivity {
 

@@ -27,5 +27,39 @@
     <string name="title_activity_web_service">WebServiceActivity</string>
     <string name="onlyNumber">1234567890</string>
     <string name="title_activity_perfil">Perfil</string>
+    <string name="title_activity_rest_full">RestFullActivity</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_userName">User Name</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="facebook_app_id">1514280605558916</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="empty_slot">Empty Slot</string>
+    <string name="greeting_format">Hello, %s!</string>
+    <string name="greeting_no_user">Please select a user via the options menu</string>
+    <string name="menu_item_switch_user">Select User</string>
+    <string name="menu_item_clear_slot">Clear this slot</string>
+    <string name="app_id">327842977278179</string>
+    <string name="title_activity_teste">Teste</string>
+    <string name="title_activity_atualizar_treino">Atualizar Exercício</string>
+
+    <string name="application_id_parse">XmN3NnmYBJ24i0NDijtgwWR02CXGCp3c8ffRLqSv</string>
+    <string name="cliente_key_parse">X5J3DnpFFvKTDP01p0EBhP0gB31U0CbErhlW9vkc</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+
 
 </resources>

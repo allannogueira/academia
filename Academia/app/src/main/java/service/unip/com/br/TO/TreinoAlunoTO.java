@@ -15,11 +15,15 @@ public class TreinoAlunoTO {
 
     private String nmeTreino;
 
-    private Date dataInicio;
+    private String dataInicio;
 
-    private Date dataFim;
+    private String dataFim;
 
-    private List<ExercicioTreinoTO> listaExercicioTreinoTO;
+    private String datCadastro;
+
+    private List<ExercicioTO> listaExercicioTO;
+
+    private String serie;
 
     public Long getCodTreinoAluno() {
         return codTreinoAluno;
@@ -37,27 +41,43 @@ public class TreinoAlunoTO {
         this.nmeTreino = nmeTreino;
     }
 
-    public Date getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 
-    public List<ExercicioTreinoTO> getListaExercicioTreinoTO() {
-        return listaExercicioTreinoTO;
+    public List<ExercicioTO> getListaExercicioTO() {
+        return listaExercicioTO;
     }
 
-    public void setListaExercicioTreinoTO(List<ExercicioTreinoTO> listaExercicioTreinoTO) {
-        this.listaExercicioTreinoTO = listaExercicioTreinoTO;
+    public void setListaExercicioTO(List<ExercicioTO> listaExercicioTO) {
+        this.listaExercicioTO = listaExercicioTO;
+    }
+
+    public String getDatCadastro() {
+        return datCadastro;
+    }
+
+    public void setDatCadastro(String datCadastro) {
+        this.datCadastro = datCadastro;
+    }
+
+    public String getSerie() {
+        return serie;
+    }
+
+    public void setSerie(String serie) {
+        this.serie = serie;
     }
 }

@@ -17,6 +17,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import service.unip.com.br.DAO.ExercicioDAO;
+import service.unip.com.br.DAO.ExercicioHasTreinoDAO;
+import service.unip.com.br.DAO.TreinoDAO;
+import service.unip.com.br.TO.ExercicioTO;
+import service.unip.com.br.TO.ExercicioTreinoTO;
+import service.unip.com.br.TO.TreinoAlunoTO;
+
+import unip.com.br.R;
+
 
 public class TreinosActivity extends FragmentActivity{
 
@@ -50,7 +59,10 @@ public class TreinosActivity extends FragmentActivity{
                 Intent intent = new Intent(view.getContext(),DetalheTreinoActivity.class);
                 Bundle param = new Bundle();
 
-                param.putString("campoSelecionado",String.valueOf(lista.getItemAtPosition(position)));
+                String campoSelecionado = String.valueOf(lista.getItemAtPosition(position));
+                campoSelecionado = campoSelecionado.substring(campoSelecionado.length() - 2, campoSelecionado.length() - 1);
+
+                param.putString("campoSelecionado", campoSelecionado);
 
                 intent.putExtras(param);
 
@@ -115,5 +127,156 @@ public class TreinosActivity extends FragmentActivity{
             dados.add(linha);
 
         }
+    }
+
+    public void geraDados(View v){
+        inserirDadosTreino();
+    }
+
+    private void inserirDadosTreino(){
+        TreinoAlunoTO treinoA = new TreinoAlunoTO();
+
+        treinoA.setNmeTreino("A");
+        treinoA.setDatCadastro("01/11/2015");
+        treinoA.setDataInicio("09/11/2015");
+        treinoA.setSerie("3x15");
+
+        TreinoAlunoTO treinoB = new TreinoAlunoTO();
+
+        treinoB.setNmeTreino("B");
+        treinoB.setDatCadastro("01/11/2015");
+        treinoB.setDataInicio("09/11/2015");
+        treinoB.setSerie("4x10");
+
+        TreinoAlunoTO treinoC = new TreinoAlunoTO();
+
+        treinoC.setNmeTreino("C");
+        treinoC.setDatCadastro("01/11/2015");
+        treinoC.setDataInicio("09/11/2015");
+        treinoC.setSerie("5x8");
+
+        TreinoDAO treinoDAO = new TreinoDAO(TreinosActivity.this);
+
+        treinoDAO.inserir(treinoA);
+        treinoDAO.inserir(treinoB);
+        treinoDAO.inserir(treinoC);
+
+        List<TreinoAlunoTO> lista = treinoDAO.consultar();
+
+        ExercicioDAO exercicioDAO = new ExercicioDAO(TreinosActivity.this);
+
+        ExercicioTO exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Supino Reto");
+        exercicio.setDscDetalhes("Treino de peito");
+        exercicio.setFinalidade("Peito");
+        exercicio.setPeso("20Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Supino Inclinado");
+        exercicio.setDscDetalhes("Treino de peito");
+        exercicio.setFinalidade("Peito");
+        exercicio.setPeso("20Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Crucifixo Reto");
+        exercicio.setDscDetalhes("Treino de peito");
+        exercicio.setFinalidade("Peito");
+        exercicio.setPeso("20Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Pull over");
+        exercicio.setDscDetalhes("Treino de peito");
+        exercicio.setFinalidade("Peito");
+        exercicio.setPeso("15Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Tricpis Testa");
+        exercicio.setDscDetalhes("Treino de tricipes");
+        exercicio.setFinalidade("Tricipes");
+        exercicio.setPeso("10Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Tricpis Maquina");
+        exercicio.setDscDetalhes("Treino de tricipes");
+        exercicio.setFinalidade("Tricipes");
+        exercicio.setPeso("10Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Tricpis Corda");
+        exercicio.setDscDetalhes("Treino de tricipes");
+        exercicio.setFinalidade("Tricipes");
+        exercicio.setPeso("17Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Remada");
+        exercicio.setDscDetalhes("Treino de costas");
+        exercicio.setFinalidade("Costas");
+        exercicio.setPeso("25Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Pa invertida");
+        exercicio.setDscDetalhes("Treino de costas");
+        exercicio.setFinalidade("Costas");
+        exercicio.setPeso("35Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Pegada chifrinho");
+        exercicio.setDscDetalhes("Treino de costas");
+        exercicio.setFinalidade("Costas");
+        exercicio.setPeso("25Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Rosca Martelo");
+        exercicio.setDscDetalhes("Bicepis");
+        exercicio.setFinalidade("Bicepis");
+        exercicio.setPeso("15Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Rosca Direta");
+        exercicio.setDscDetalhes("Bicepis");
+        exercicio.setFinalidade("Bicepis");
+        exercicio.setPeso("10Kg");
+        exercicioDAO.inserir(exercicio);
+
+        exercicio = new ExercicioTO();
+        exercicio.setNmeExercicio("Rosca 21");
+        exercicio.setDscDetalhes("Bicepis");
+        exercicio.setFinalidade("Bicepis");
+        exercicio.setPeso("7Kg");
+        exercicioDAO.inserir(exercicio);
+
+        List<ExercicioTO> listaEx = exercicioDAO.consultar();
+
+        ExercicioHasTreinoDAO et = new ExercicioHasTreinoDAO(TreinosActivity.this);
+
+       for(TreinoAlunoTO treino :lista){
+
+            for(ExercicioTO ex : listaEx){
+                if(treino.getNmeTreino().equals("A")){
+                    if(ex.getFinalidade().equals("Peito") || ex.getFinalidade().equals("Tricipes")){
+                        et.inserir(ex.getCodExercicio(), treino.getCodTreinoAluno(), ex.getPeso());
+                    }
+                }
+
+                if(treino.getNmeTreino().equals("B")){
+                    if(ex.getFinalidade().equals("Costas") || ex.getFinalidade().equals("Bicepis")){
+                        et.inserir(ex.getCodExercicio(), treino.getCodTreinoAluno(), ex.getPeso());
+                    }
+                }
+            }
+        }
+
+        List<ExercicioTreinoTO> listaExTre = et.consultar();
     }
 }

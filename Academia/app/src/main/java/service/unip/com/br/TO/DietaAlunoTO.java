@@ -12,9 +12,9 @@ public class DietaAlunoTO {
 
     private Long codDietaAluno;
 
-    private Date dataInicio;
+    private String dataInicio;
 
-    private Date dataFim;
+    private String dataFim;
 
     private DietaGeralTO dietaGeralTO;
 
@@ -26,19 +26,19 @@ public class DietaAlunoTO {
         this.codDietaAluno = codDietaAluno;
     }
 
-    public Date getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 

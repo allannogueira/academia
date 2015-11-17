@@ -10,23 +10,33 @@ import java.util.List;
  */
 public class ExercicioTreinoTO {
 
-    private List<ExercicioTO> listaExercicioTO;
+    private String codExercicioTO;
 
-    private List<TreinoAlunoTO> listaTreinoAluno;
+    private String codTreinoAluno;
 
-    public List<ExercicioTO> getListaExercicioTO() {
-        return listaExercicioTO;
+    private String peso;
+
+    public String getCodExercicioTO() {
+        return codExercicioTO;
     }
 
-    public void setListaExercicioTO(List<ExercicioTO> listaExercicioTO) {
-        this.listaExercicioTO = listaExercicioTO;
+    public void setCodExercicioTO(String codExercicioTO) {
+        this.codExercicioTO = codExercicioTO;
     }
 
-    public List<TreinoAlunoTO> getListaTreinoAluno() {
-        return listaTreinoAluno;
+    public String getCodTreinoAluno() {
+        return codTreinoAluno;
     }
 
-    public void setListaTreinoAluno(List<TreinoAlunoTO> listaTreinoAluno) {
-        this.listaTreinoAluno = listaTreinoAluno;
+    public void setCodTreinoAluno(String codTreinoAluno) {
+        this.codTreinoAluno = codTreinoAluno;
+    }
+
+    public String getPeso() {
+        return peso;
+    }
+
+    public void setPeso(String peso) {
+        this.peso = peso;
     }
 }

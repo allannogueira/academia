@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import unip.com.br.R;
+
 public class DetalheDietaActivity extends FragmentActivity {
 
     List<Map<String, String>> dados = new ArrayList<>();

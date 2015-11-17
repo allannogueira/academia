@@ -186,7 +186,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Bícpes" />
+            android:text="Braços" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
@@ -203,7 +203,7 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/bicpesDireito"
+                android:id="@+id/bracoDireito"
                 android:hint="Direito"/>
 
             <EditText
@@ -212,7 +212,7 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/bicpesEsquerdo"
+                android:id="@+id/bracoEsquerdo"
                 android:hint="Esquerdo"/>
 
         </LinearLayout>
@@ -223,7 +223,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Trícpes" />
+            android:text="Anti-Braços" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
@@ -241,7 +241,7 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/tricipesDireito"
+                android:id="@+id/antBracoDireito"
                 android:hint="Direito"/>
 
             <EditText
@@ -250,7 +250,7 @@
                 android:digits="@string/onlyNumber"
                 android:maxLength="3"
                 android:textSize="20dp"
-                android:id="@+id/tricipesEsquerdo"
+                android:id="@+id/antBracoEsquerdo"
                 android:hint="Esquerdo"/>
 
         </LinearLayout>
@@ -330,10 +330,17 @@
                 android:hint="Esquerdo"/>
 
         </LinearLayout>
+
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:id="@+id/btnSalvarMedida"
-            android:onClick="salvar"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/linearLayout1"
+            android:layout_below="@+id/linearLayout1"
+            android:background="@drawable/shapebutton"
+            android:layout_marginTop="30dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"/>
     </LinearLayout>
 </ScrollView>
