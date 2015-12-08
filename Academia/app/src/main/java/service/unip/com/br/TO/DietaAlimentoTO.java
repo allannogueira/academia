@@ -10,23 +10,23 @@ import java.util.List;
  */
 public class DietaAlimentoTO {
 
-    private List<DietaGeralTO> listaDietaGeralTO;
+    private Long codDietaGeralTO;
 
-    private List<AlimentoTO> listaAlimentoTO;
+    private Long codAlimentoTO;
 
-    public List<DietaGeralTO> getListaDietaGeralTO() {
-        return listaDietaGeralTO;
+    public Long getCodDietaGeralTO() {
+        return codDietaGeralTO;
     }
 
-    public void setListaDietaGeralTO(List<DietaGeralTO> listaDietaGeralTO) {
-        this.listaDietaGeralTO = listaDietaGeralTO;
+    public void setCodDietaGeralTO(Long codDietaGeralTO) {
+        this.codDietaGeralTO = codDietaGeralTO;
     }
 
-    public List<AlimentoTO> getListaAlimentoTO() {
-        return listaAlimentoTO;
+    public Long getCodAlimentoTO() {
+        return codAlimentoTO;
     }
 
-    public void setListaAlimentoTO(List<AlimentoTO> listaAlimentoTO) {
-        this.listaAlimentoTO = listaAlimentoTO;
+    public void setCodAlimentoTO(Long codAlimentoTO) {
+        this.codAlimentoTO = codAlimentoTO;
     }
 }

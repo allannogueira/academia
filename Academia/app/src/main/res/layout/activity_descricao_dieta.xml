@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical">
 
@@ -8,7 +8,11 @@
         android:id="@+id/tituloDescricaoDieta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Descrição Dieta"/>
+        android:text="Descrição Dieta"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +23,11 @@
             android:id="@+id/tituloDesjejum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Desjejum" />
+            android:text="Alimentos"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"/>
+
 
         <ListView
             android:id="@+id/listaDesjejum"
@@ -27,72 +35,4 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tituloAlmoco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Almoço" />
-
-        <ListView
-            android:id="@+id/listaAlmoco"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tituloLanche"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lanche" />
-
-        <ListView
-            android:id="@+id/listaLanche"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tituloJantar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jantar" />
-
-
-        <ListView
-            android:id="@+id/listaJantar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tituloCeia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ceia" />
-
-        <ListView
-            android:id="@+id/listaCeia"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
 </LinearLayout>

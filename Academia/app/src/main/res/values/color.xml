@@ -2,4 +2,5 @@
 <resources>
     <color name="laranja">#FF9531</color>
     <color name="preto">#000000</color>
+    <color name="branco">#FFFFFF</color>
 </resources>

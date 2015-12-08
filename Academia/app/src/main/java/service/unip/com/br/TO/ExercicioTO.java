@@ -20,7 +20,10 @@ public class ExercicioTO {
     //Campo como_fazer
     private String dscDetalhes;
 
-    private boolean arLiver;
+    private String arLivre;
+
+    //Transient
+    private String peso;
 
     private List<ExercicioTreinoTO> listaExercicioTreinoTO;
 
@@ -56,12 +59,12 @@ public class ExercicioTO {
         this.dscDetalhes = dscDetalhes;
     }
 
-    public boolean isArLiver() {
-        return arLiver;
+    public String getArLivre() {
+        return arLivre;
     }
 
-    public void setArLiver(boolean arLiver) {
-        this.arLiver = arLiver;
+    public void setArLivre(String arLivre) {
+        this.arLivre = arLivre;
     }
 
     public List<ExercicioTreinoTO> getListaExercicioTreinoTO() {
@@ -70,5 +73,13 @@ public class ExercicioTO {
 
     public void setListaExercicioTreinoTO(List<ExercicioTreinoTO> listaExercicioTreinoTO) {
         this.listaExercicioTreinoTO = listaExercicioTreinoTO;
+    }
+
+    public String getPeso() {
+        return peso;
+    }
+
+    public void setPeso(String peso) {
+        this.peso = peso;
     }
 }
